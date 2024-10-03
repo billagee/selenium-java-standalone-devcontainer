@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  selenium-client:
+    # See docs at https://github.com/SeleniumHQ/docker-selenium
+    #
+    #image: selenium/standalone-chrome
+    #platform: linux/amd64
+    #
+    # Use Chromium instead of Chrome to avoid amd64 emulation slowness on M1 Macs:
+    # (see https://www.selenium.dev/blog/2024/multi-arch-images-via-docker-selenium/)
+    image: selenium/standalone-chromium:latest
+  
+    volumes:
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - ..:/workspace:cached
+
+    shm_size: '2gb'
+    ports:
+      # Allow a VNC client on the host to connect to the container's VNC server
+      - "5900:5900"

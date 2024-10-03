@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "src/test/java/dev/selenium/hello"
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
+}
